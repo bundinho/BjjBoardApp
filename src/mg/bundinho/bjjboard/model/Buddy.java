@@ -79,7 +79,7 @@ public class Buddy {
     /**
      * Resets all the scores awarded to BJJ Buddy
      */
-    private void reset(){
+    public void reset(){
         setScore(0);
         setAdvantage(0);
         setPenalty(0);
@@ -89,7 +89,7 @@ public class Buddy {
      * Add points to score
      * @param point 
      */
-    private void addScorePoint(int point) {
+    public void addScorePoint(int point) {
         int oldScore = getScore();
         setScore(point + oldScore);
     }
@@ -98,7 +98,7 @@ public class Buddy {
      * Remove points from score
      * @param point 
      */
-    private void removeScorePoint(int point){
+    public void removeScorePoint(int point){
         int oldScore = getScore();
         setScore(oldScore - point);
     }
@@ -107,7 +107,7 @@ public class Buddy {
      * Add points to advantages
      * @param point 
      */
-    private void addAdvantagePoint(int point) {
+    public void addAdvantagePoint(int point) {
         int advantagePoint = getAdvantage();
         setAdvantage(advantagePoint + point);
     }
@@ -116,7 +116,7 @@ public class Buddy {
      * Remove advantage points
      * @param point 
      */
-    private void removeAdvantagePoint(int point){
+    public void removeAdvantagePoint(int point){
         int advantagePoint = getAdvantage();
         setAdvantage(advantagePoint - point);
     }
@@ -125,7 +125,7 @@ public class Buddy {
      * Add penalty point
      * @param point 
      */
-    private void addPenaltyPoint(int point){
+    public void addPenaltyPoint(int point){
         int penaltyPoint = getPenalty();
         setPenalty(penaltyPoint + point);
     }
@@ -134,7 +134,7 @@ public class Buddy {
      * Removes penalty point
      * @param point 
      */
-    private void removePenaltyPoint(int point){
+    public void removePenaltyPoint(int point){
         int penaltyPoint = getPenalty();
         setPenalty(penaltyPoint - point);
     }

@@ -12,6 +12,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import mg.bundinho.bjjboard.model.Buddy;
+import mg.bundinho.bjjboard.view.CtrlBoardController;
 
 /**
  *
@@ -58,14 +59,34 @@ public class BjjBoardApp extends Application {
             loader.setLocation(BjjBoardApp.class.getResource("view/CtrlBoard.fxml"));
             rootLayout = (AnchorPane) loader.load();
             
+            //create the stage
             Scene scene = new Scene(rootLayout);
             primaryStage.setScene(scene);
             primaryStage.show();
+            
+            CtrlBoardController controller = loader.getController();
+            controller.setBjjBoardApp(this);
         } catch (IOException ex) {
             ex.printStackTrace();
         }
         
         
+    }
+    
+    /**
+     * gets the white side buddy
+     * @return 
+     */
+    public Buddy getWhiteBuddy(){
+        return whiteBuddy;
+    }
+    
+    /**
+     * Returns the blue side buddy
+     * @return 
+     */
+    public Buddy getBlueBuddy(){
+        return blueBuddy;
     }
     
 }

@@ -1,11 +1,190 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.paint.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1">
-    
+<AnchorPane id="AnchorPane" prefHeight="439.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mg.bundinho.bjjboard.view.CtrlBoardController">
+   <children>
+      <Pane prefHeight="439.0" prefWidth="300.0" style="-fx-background-color: #fff;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Pane layoutX="1.0" layoutY="4.0" prefHeight="238.0" prefWidth="163.0" style="-fx-border-color: black;" />
+            <Label fx:id="whiteScoreLabel" alignment="CENTER" prefHeight="246.0" prefWidth="163.0" text="00" textAlignment="CENTER">
+               <font>
+                  <Font size="85.0" />
+               </font>
+            </Label>
+            <Pane layoutX="9.0" layoutY="246.0" prefHeight="92.0" prefWidth="155.0" style="-fx-background-color: #204d22;">
+               <children>
+                  <Label fx:id="whiteAdvantageLabel" alignment="CENTER" layoutY="5.0" prefHeight="83.0" prefWidth="155.0" text="00" textFill="WHITE">
+                     <font>
+                        <Font size="43.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane layoutX="9.0" layoutY="339.0" prefHeight="92.0" prefWidth="155.0" style="-fx-background-color: #b81818;">
+               <children>
+                  <Label fx:id="whitePenaltyLabel" alignment="CENTER" layoutY="5.0" prefHeight="83.0" prefWidth="155.0" text="00" textFill="WHITE">
+                     <font>
+                        <Font size="43.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+      <Pane layoutX="286.0" layoutY="5.0" prefHeight="439.0" prefWidth="300.0" style="-fx-border-color: blue; -fx-background-color: blue;" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Pane layoutX="137.0" layoutY="6.0" prefHeight="238.0" prefWidth="163.0" style="-fx-border-color: black;">
+               <children>
+                  <Label fx:id="blueScoreLabel" alignment="CENTER" layoutY="-4.0" prefHeight="246.0" prefWidth="163.0" text="00" textAlignment="CENTER">
+                     <font>
+                        <Font size="85.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane layoutX="138.0" layoutY="248.0" prefHeight="92.0" prefWidth="155.0" style="-fx-background-color: #204d22;">
+               <children>
+                  <Label fx:id="blueAdvantageLabel" alignment="CENTER" layoutY="5.0" prefHeight="83.0" prefWidth="155.0" text="00" textFill="WHITE">
+                     <font>
+                        <Font size="43.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane layoutX="138.0" layoutY="341.0" prefHeight="92.0" prefWidth="155.0" style="-fx-background-color: #b81818;">
+               <children>
+                  <Label fx:id="bluePenaltyLabel" alignment="CENTER" layoutY="5.0" prefHeight="83.0" prefWidth="155.0" text="00" textFill="WHITE">
+                     <font>
+                        <Font size="43.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+      <Pane prefHeight="83.0" prefWidth="200.0" style="-fx-background-color: #000;" AnchorPane.leftAnchor="200.0" AnchorPane.topAnchor="0.0" />
+      <Pane layoutX="166.0" prefHeight="330.0" prefWidth="270.0" style="-fx-background-color: white; -fx-border-color: black;" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="166.0">
+         <children>
+            <GridPane layoutY="251.0" prefHeight="59.0" prefWidth="270.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="42.0" minWidth="10.0" prefWidth="42.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="186.0" minWidth="10.0" prefWidth="186.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="169.0" minWidth="10.0" prefWidth="42.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Label contentDisplay="CENTER" prefHeight="17.0" prefWidth="53.0" style="-fx-font-weight: bold;" text="Penalties" textAlignment="CENTER" textFill="#b81818" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="189.0" text="Remove 1 point" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="189.0" text="Add 1 point" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Button alignment="CENTER" contentDisplay="CENTER" defaultButton="true" mnemonicParsing="false" onAction="#handleAddWhitePenaltyPoint" prefHeight="25.0" prefWidth="25.0" text="+1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="9.0" />
+                     </font>
+                  </Button>
+                  <Button alignment="CENTER" contentDisplay="CENTER" defaultButton="true" mnemonicParsing="false" onAction="#handleRemoveWhitePenaltyPoint" prefHeight="25.0" prefWidth="25.0" text="-1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                     <font>
+                        <Font size="9.0" />
+                     </font>
+                  </Button>
+                  <Button alignment="CENTER" contentDisplay="CENTER" defaultButton="true" mnemonicParsing="false" onAction="#handleAddBluePenaltyPoint" prefHeight="25.0" prefWidth="25.0" text="+1" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="9.0" />
+                     </font>
+                  </Button>
+                  <Button alignment="CENTER" contentDisplay="CENTER" defaultButton="true" mnemonicParsing="false" onAction="#handleRemoveBluePenaltyPoint" prefHeight="25.0" prefWidth="25.0" text="-1" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                     <font>
+                        <Font size="9.0" />
+                     </font>
+                  </Button>
+               </children>
+            </GridPane>
+            <GridPane layoutY="158.0" prefHeight="59.0" prefWidth="270.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="42.0" minWidth="10.0" prefWidth="42.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="186.0" minWidth="10.0" prefWidth="186.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="169.0" minWidth="10.0" prefWidth="42.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Label contentDisplay="CENTER" prefHeight="17.0" prefWidth="71.0" style="-fx-font-weight: bold;" text="Advantages" textAlignment="CENTER" textFill="#204d22" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="189.0" text="Add 1 point" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="189.0" text="Remove 1 point" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Button alignment="CENTER" contentDisplay="CENTER" defaultButton="true" mnemonicParsing="false" onAction="#handleAddBlueAdvantagePoint" prefHeight="25.0" prefWidth="25.0" text="+1" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                     <font>
+                        <Font size="9.0" />
+                     </font>
+                  </Button>
+                  <Button alignment="CENTER" contentDisplay="CENTER" defaultButton="true" mnemonicParsing="false" onAction="#handleAddWhiteAdvantagePoint" prefHeight="25.0" prefWidth="25.0" text="+1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="9.0" />
+                     </font>
+                  </Button>
+                  <Button alignment="CENTER" contentDisplay="CENTER" defaultButton="true" mnemonicParsing="false" onAction="#handleRemoveWhiteAdvantagePoint" prefHeight="25.0" prefWidth="25.0" text="-1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                     <font>
+                        <Font size="9.0" />
+                     </font>
+                  </Button>
+                  <Button alignment="CENTER" contentDisplay="CENTER" defaultButton="true" mnemonicParsing="false" onAction="#handleRemoveBlueAdvantagePoint" prefHeight="25.0" prefWidth="25.0" text="-1" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                     <font>
+                        <Font size="9.0" />
+                     </font>
+                  </Button>
+               </children>
+            </GridPane>
+            <GridPane layoutY="63.0" prefHeight="59.0" prefWidth="270.0">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="182.0" style="-fx-font-weight: bold;" text="Record" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="189.0" text="Add 1 point" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="189.0" text="Remove 1 point" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Button alignment="CENTER" contentDisplay="CENTER" defaultButton="true" mnemonicParsing="false" onAction="#handleAddBlueScorePoint" prefHeight="25.0" prefWidth="25.0" text="+1" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                     <font>
+                        <Font size="9.0" />
+                     </font>
+                  </Button>
+                  <Button alignment="CENTER" contentDisplay="CENTER" defaultButton="true" mnemonicParsing="false" onAction="#handleAddWhiteScorePoint" prefHeight="25.0" prefWidth="25.0" text="+1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="9.0" />
+                     </font>
+                  </Button>
+                  <Button alignment="CENTER" contentDisplay="CENTER" defaultButton="true" mnemonicParsing="false" onAction="#handleRemoveWhiteScorePoint" prefHeight="25.0" prefWidth="25.0" text="-1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                     <font>
+                        <Font size="9.0" />
+                     </font>
+                  </Button>
+                  <Button alignment="CENTER" contentDisplay="CENTER" defaultButton="true" mnemonicParsing="false" onAction="#handleRemoveBlueScorePoint" prefHeight="25.0" prefWidth="25.0" text="-1" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                     <font>
+                        <Font size="9.0" />
+                     </font>
+                  </Button>
+               </children>
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="42.0" minWidth="10.0" prefWidth="42.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="186.0" minWidth="10.0" prefWidth="186.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="169.0" minWidth="10.0" prefWidth="42.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+            </GridPane>
+         </children>
+      </Pane>
+   </children>
 </AnchorPane>
