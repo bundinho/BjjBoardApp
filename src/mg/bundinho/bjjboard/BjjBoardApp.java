@@ -6,10 +6,13 @@
 package mg.bundinho.bjjboard;
 
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import mg.bundinho.bjjboard.model.Buddy;
 import mg.bundinho.bjjboard.view.CtrlBoardController;
@@ -21,7 +24,7 @@ import mg.bundinho.bjjboard.view.CtrlBoardController;
 public class BjjBoardApp extends Application {
     private Stage primaryStage;
     private Stage secondaryStage;
-    private AnchorPane rootLayout;
+    private BorderPane rootLayout;
     private Buddy whiteBuddy;
     private Buddy blueBuddy;
     
@@ -40,6 +43,7 @@ public class BjjBoardApp extends Application {
         this.primaryStage.setTitle("BJJ Board");
         
         initRootLayout();
+        showControlPanel();
     }
 
     /**
@@ -56,21 +60,34 @@ public class BjjBoardApp extends Application {
         try {
             //load root layout from XML file
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(BjjBoardApp.class.getResource("view/CtrlBoard.fxml"));
-            rootLayout = (AnchorPane) loader.load();
+            loader.setLocation(BjjBoardApp.class.getResource("view/RootLayout.fxml"));
+            rootLayout = (BorderPane) loader.load();
             
             //create the stage
             Scene scene = new Scene(rootLayout);
             primaryStage.setScene(scene);
             primaryStage.show();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }        
+    }
+    
+    public void showControlPanel(){
+        try {
+            //load root layout from XML file
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(BjjBoardApp.class.getResource("view/CtrlBoard.fxml"));
+            AnchorPane controlPanel = (AnchorPane) loader.load();
             
+            //set the control panel on the center of the root layout
+            rootLayout.setCenter(controlPanel);
+            
+            //Give the controller access to the main app
             CtrlBoardController controller = loader.getController();
             controller.setBjjBoardApp(this);
         } catch (IOException ex) {
             ex.printStackTrace();
         }
-        
-        
     }
     
     /**
