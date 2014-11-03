@@ -184,6 +184,7 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                </rowConstraints>
             </GridPane>
+            <Button layoutX="79.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleResetBoard" prefHeight="25.0" prefWidth="112.0" text="Reset" />
          </children>
       </Pane>
    </children>

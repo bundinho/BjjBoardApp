@@ -193,6 +193,15 @@ public class CtrlBoardController {
     }
     
     /**
+     * Resets all the points on the board
+     */
+    @FXML
+    private void handleResetBoard(){
+        blueBuddy.reset();
+        whiteBuddy.reset();
+    }
+    
+    /**
      * updates label of white side penalty points
      */
     public void showWhitePenalty(){
