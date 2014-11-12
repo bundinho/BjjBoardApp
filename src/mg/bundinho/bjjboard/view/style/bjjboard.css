@@ -1,0 +1,29 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Nov 10, 2014, 3:44:52 PM
+    Author     : Bundinho
+*/
+.left-panel{
+    -fx-outer-border: black;
+    -fx-body-color: #f5f90c;
+    -fx-background-color: -fx-outer-border, -fx-body-color;
+    -fx-background-insets: 0, 6;
+} 
+.right-panel {
+    -fx-outer-border: black;
+    -fx-body-color: #69a00b;
+    -fx-background-color: -fx-outer-border, -fx-body-color;
+    -fx-background-insets: 0, 6;
+}
+
+.point-panel{
+    -fx-outer-border: black;
+    -fx-body-color: #7d9699;
+    -fx-background-color: -fx-outer-border, -fx-body-color;
+    -fx-background-insets: 0, 3;
+    -fx-border-radius: 6px, 6px;
+}

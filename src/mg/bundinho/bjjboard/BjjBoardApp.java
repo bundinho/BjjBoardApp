@@ -5,9 +5,8 @@
  */
 package mg.bundinho.bjjboard;
 
+import com.c05mic.timer.Timer;
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -27,6 +26,7 @@ public class BjjBoardApp extends Application {
     private BorderPane rootLayout;
     private Buddy whiteBuddy;
     private Buddy blueBuddy;
+    private Timer cdTimer;
     
     /**
      * Constructor:
