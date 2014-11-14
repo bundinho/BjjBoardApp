@@ -14,7 +14,6 @@ import javafx.beans.property.SimpleLongProperty;
  */
 public class TimerProperties {
     public static SimpleLongProperty DURATION = new SimpleLongProperty(300000);
-    public static boolean TIMER_PAUSED = true;
     private static final DecimalFormat formatter = new DecimalFormat("00");
     
     public static String format(long duration) {

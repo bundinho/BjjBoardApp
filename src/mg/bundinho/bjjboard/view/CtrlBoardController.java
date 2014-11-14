@@ -67,8 +67,6 @@ public class CtrlBoardController {
         this.bjjBoardApp = bjjBoardApp;
         setWhiteBuddy(bjjBoardApp.getWhiteBuddy());
         setBlueBuddy(bjjBoardApp.getBlueBuddy());
-        long duration = TimerProperties.DURATION.get();
-        cdTimer.setDuration(duration);
         
         //Add listeners in order to synchronize data change with UI
         //white buddy
@@ -88,6 +86,8 @@ public class CtrlBoardController {
         
         //timer
         TimerProperties.DURATION.addListener((observable, oldValue, newValue)-> showTimer(newValue));
+        
+         playTimer();
     }
     
     /**
@@ -322,43 +322,19 @@ public class CtrlBoardController {
         String output = TimerProperties.format(value.longValue());
         Platform.runLater(() -> {
             timerLabel.setText(output);
-        });        
-    }
-    
-    @FXML
-    private void handleTimerClick(MouseEvent mouseEvent) {
-         if(TimerProperties.TIMER_PAUSED == false) {
-             pauseTimer();
-         } else {
-             resumeTimer();
-         }
-    }
-    
-    private void pauseTimer() {
-        cdTimer.pause();
-        TimerProperties.TIMER_PAUSED = true;
-    }
-    
-    private void resumeTimer() {
-        cdTimer.resume();
-        TimerProperties.TIMER_PAUSED = false;
-    }
-    
-    @FXML
-    private void handleResetTimer3 () {
+        });
         
-        resetTimer(180000);
     }
     
-    @FXML
-    private void handleResetTimer5 () {
-        resetTimer(300000);
-    }
-    
-    public void resetTimer(long duration) {
-        cdTimer.cancel();
-        TimerProperties.TIMER_PAUSED = true;
-        TimerProperties.DURATION.set(duration);
+    public void playTimer() {
+        System.out.println("starting");
+        long duration = TimerProperties.DURATION.get();
         cdTimer.setDuration(duration);
+//Start the timer.
+cdTimer.start();
+//Pause the timer.
+cdTimer.pause();
+//Resume the timer
+cdTimer.resume();
     }
 }
