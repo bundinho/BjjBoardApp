@@ -83,12 +83,14 @@
             </Pane>
             <Pane layoutX="-96.0" layoutY="14.0" prefHeight="132.0" prefWidth="189.0" style="-fx-background-color: white; -fx-border-color: black;">
                <children>
-                  <Button layoutX="39.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleResetBoard" prefHeight="25.0" prefWidth="112.0" text="Reset" />
+                  <Button layoutX="39.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleResetBoard" prefHeight="25.0" prefWidth="112.0" text="Reset Scores" />
+                  <Button layoutX="32.0" layoutY="54.0" mnemonicParsing="false" onAction="#handleResetTimer3" prefHeight="25.0" prefWidth="126.0" text="Reset timer to 3mn" />
+                  <Button layoutX="32.0" layoutY="93.0" mnemonicParsing="false" onAction="#handleResetTimer5" prefHeight="25.0" prefWidth="126.0" text="Reset timer to 5mn" />
                </children>
             </Pane>
-            <Pane layoutX="-101.0" layoutY="167.0" prefHeight="83.0" prefWidth="200.0" style="-fx-background-color: #000;">
+            <Pane layoutX="-101.0" layoutY="167.0" onMouseClicked="#handleTimerClick" prefHeight="83.0" prefWidth="200.0" style="-fx-background-color: #000;">
                <children>
-                  <Label fx:id="timerLabel" alignment="CENTER" layoutY="1.0" prefHeight="83.0" prefWidth="200.0" text="00:00" textAlignment="CENTER" textFill="WHITE">
+                  <Label fx:id="timerLabel" alignment="CENTER" layoutY="1.0" prefHeight="83.0" prefWidth="200.0" text="05:00" textAlignment="CENTER" textFill="WHITE">
                      <font>
                         <Font name="Magneto Bold" size="55.0" />
                      </font>

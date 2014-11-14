@@ -1,5 +1,7 @@
 package com.c05mic.timer;
 
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentMap;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import java.util.concurrent.ScheduledExecutorService;
@@ -15,6 +17,7 @@ import java.util.concurrent.TimeUnit;
  * 
  */
 public abstract class Timer {
+        public static ConcurrentMap<String,Future<?>> futures = new ConcurrentHashMap<>();
 	public static final int DURATION_INFINITY = -1;
 	private volatile boolean isRunning = false;
 	private long interval;
@@ -70,19 +73,17 @@ public abstract class Timer {
 			return;
 
 		isRunning = true;
-		future = execService.scheduleWithFixedDelay(new Runnable() {
-			@Override
-			public void run() {
-				onTick();
-				elapsedTime += Timer.this.interval;
-				if (duration > 0) {
-					if(elapsedTime >=duration){
-						onFinish();
-						future.cancel(false);
-					}
-				}
-			}
-		}, 0, this.interval, TimeUnit.MILLISECONDS);
+		future = execService.scheduleWithFixedDelay(() -> {
+                    onTick();
+                    elapsedTime += Timer.this.interval;
+                    if (duration > 0) {
+                        if(elapsedTime >=duration){
+                            onFinish();
+                            future.cancel(false);
+                        }
+                    }
+                }, 0, this.interval, TimeUnit.MILLISECONDS);
+                futures.put("Counter-thread", future);
 	}
 
 	/**
