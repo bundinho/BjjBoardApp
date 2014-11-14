@@ -13,7 +13,9 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 import mg.bundinho.bjjboard.model.Buddy;
+import mg.bundinho.bjjboard.model.timer.CountdownTimer;
 import mg.bundinho.bjjboard.view.CtrlBoardController;
 
 /**
@@ -67,9 +69,18 @@ public class BjjBoardApp extends Application {
             Scene scene = new Scene(rootLayout);
             primaryStage.setScene(scene);
             primaryStage.show();
+            primaryStage.setOnCloseRequest((WindowEvent event) -> {
+                try {
+                    CountdownTimer.futures.get("Counter-thread").cancel(true);
+                    System.exit(0);
+                } catch (NullPointerException ex) {
+                    System.exit(0);
+                }
+                
+            });  
         } catch (IOException ex) {
             ex.printStackTrace();
-        }        
+        }    
     }
     
     public void showControlPanel(){
