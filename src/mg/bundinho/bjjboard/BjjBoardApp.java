@@ -17,6 +17,7 @@ import javafx.stage.WindowEvent;
 import mg.bundinho.bjjboard.model.Buddy;
 import mg.bundinho.bjjboard.model.timer.CountdownTimer;
 import mg.bundinho.bjjboard.view.CtrlBoardController;
+import mg.bundinho.bjjboard.view.DisplayBoardController;
 
 /**
  *
@@ -45,6 +46,7 @@ public class BjjBoardApp extends Application {
         this.primaryStage.setTitle("BJJ Board");
         
         initRootLayout();
+        showDisplayBoard();
         showControlPanel();
     }
 
@@ -98,6 +100,31 @@ public class BjjBoardApp extends Application {
             controller.setBjjBoardApp(this);
         } catch (IOException ex) {
             ex.printStackTrace();
+        }
+    }
+    
+    public void showDisplayBoard() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(BjjBoardApp.class.getResource("view/DisplayBoard.fxml"));
+            AnchorPane page = (AnchorPane) loader.load();
+            
+            //Create the dialog stage
+            Stage dialogStage = new Stage();
+            dialogStage.setTitle("Display Board");
+//            dialogStage.initModality(Modality.WINDOW_MODAL);
+//            dialogStage.initOwner(primaryStage);
+            Scene scene = new Scene(page);
+            dialogStage.setScene(scene);
+            
+            //Set the person into the controller
+            DisplayBoardController controller = loader.getController();
+            //controller.setDialogStag(dialogStage);
+            //controller.setPerson(person);
+            
+            //Show the dialog and wait until the user closes it
+            dialogStage.show();
+        } catch (IOException ex) {
         }
     }
     

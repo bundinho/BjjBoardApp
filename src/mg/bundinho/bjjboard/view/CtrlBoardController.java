@@ -17,6 +17,7 @@ import mg.bundinho.bjjboard.BjjBoardApp;
 import mg.bundinho.bjjboard.model.Buddy;
 import mg.bundinho.bjjboard.model.timer.CountdownTimer;
 import mg.bundinho.bjjboard.model.timer.TimerProperties;
+import mg.bundinho.bjjboard.utils.DisplayBoardProperties;
 
 /**
  *
@@ -322,6 +323,7 @@ public class CtrlBoardController {
         String output = TimerProperties.format(value.longValue());
         Platform.runLater(() -> {
             timerLabel.setText(output);
+            DisplayBoardProperties.TIMER_LABEL.set(output);
         });        
     }
     

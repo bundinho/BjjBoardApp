@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="mg.bundinho.bjjboard.view.DisplayBoardController">
+    <stylesheets>
+        <URL value="@/mg/bundinho/bjjboard/view/style/bjjboard.css" />
+    </stylesheets>
+   <children>
+      <Label fx:id="timerLabel" alignment="CENTER" layoutX="94.0" layoutY="47.0" prefHeight="17.0" prefWidth="40.0" text="05:00" />
+   </children>
+</AnchorPane>
