@@ -13,4 +13,10 @@ import javafx.beans.property.SimpleStringProperty;
  */
 public class DisplayBoardProperties {
     public static SimpleStringProperty TIMER_LABEL = new SimpleStringProperty("");
+    public static SimpleStringProperty WHITE_SCORE_LABEL = new SimpleStringProperty("");
+    public static SimpleStringProperty WHITE_ADV_LABEL = new SimpleStringProperty("");
+    public static SimpleStringProperty WHITE_PEN_LABEL = new SimpleStringProperty("");
+    public static SimpleStringProperty BLUE_SCORE_LABEL = new SimpleStringProperty("");
+    public static SimpleStringProperty BLUE_ADV_LABEL = new SimpleStringProperty("");
+    public static SimpleStringProperty BLUE_PEN_LABEL = new SimpleStringProperty("");
 }

@@ -107,7 +107,7 @@ public class BjjBoardApp extends Application {
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(BjjBoardApp.class.getResource("view/DisplayBoard.fxml"));
-            AnchorPane page = (AnchorPane) loader.load();
+            BorderPane page = (BorderPane) loader.load();
             
             //Create the dialog stage
             Stage dialogStage = new Stage();

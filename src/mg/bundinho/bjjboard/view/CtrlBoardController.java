@@ -279,14 +279,18 @@ public class CtrlBoardController {
      * updates label of white side penalty points
      */
     public void showWhitePenalty(){
-        whitePenaltyLabel.setText(formatter.format(whiteBuddy.getPenalty()));
+        String output = formatter.format(whiteBuddy.getPenalty());
+        whitePenaltyLabel.setText(output);
+        DisplayBoardProperties.WHITE_PEN_LABEL.set(output);
     }
     
     /**
      * updates the label of white side record points
      */
     public void showWhiteScore(){
-        whiteScoreLabel.setText(formatter.format(whiteBuddy.getScore()));
+        String output = formatter.format(whiteBuddy.getScore());
+        whiteScoreLabel.setText(output);
+        DisplayBoardProperties.WHITE_SCORE_LABEL.set(output);
     }
     
     /**
@@ -295,20 +299,25 @@ public class CtrlBoardController {
     public void showWhiteAdvantage(){
         String output = formatter.format(whiteBuddy.getAdvantage());
         whiteAdvantageLabel.setText(output);
+        DisplayBoardProperties.WHITE_ADV_LABEL.set(output);
     }
     
     /**
      * updates label of blue side penalty points
      */
     public void showBluePenalty(){
-        bluePenaltyLabel.setText(formatter.format(blueBuddy.getPenalty()));
+        String output = formatter.format(blueBuddy.getPenalty());
+        bluePenaltyLabel.setText(output);
+        DisplayBoardProperties.BLUE_PEN_LABEL.set(output);
     }
     
     /**
      * updates the label of blue side record points
      */
     public void showBlueScore(){
-        blueScoreLabel.setText(formatter.format(blueBuddy.getScore()));
+        String output = formatter.format(blueBuddy.getScore());
+        blueScoreLabel.setText(output);
+        DisplayBoardProperties.BLUE_SCORE_LABEL.set(output);
     }
     
     /**
@@ -317,6 +326,7 @@ public class CtrlBoardController {
     public void showBlueAdvantage(){
         String output = formatter.format(blueBuddy.getAdvantage());
         blueAdvantageLabel.setText(output);
+        DisplayBoardProperties.BLUE_ADV_LABEL.set(output);
     }
     
     public void showTimer(Number value){
@@ -357,7 +367,7 @@ public class CtrlBoardController {
         resetTimer(300000);
     }
     
-    public void resetTimer(long duration) {
+    private void resetTimer(long duration) {
         cdTimer.cancel();
         TimerProperties.TIMER_PAUSED = true;
         TimerProperties.DURATION.set(duration);

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.net.*?>
 <?import java.util.*?>
@@ -7,11 +8,100 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="mg.bundinho.bjjboard.view.DisplayBoardController">
-    <stylesheets>
-        <URL value="@/mg/bundinho/bjjboard/view/style/bjjboard.css" />
-    </stylesheets>
-   <children>
-      <Label fx:id="timerLabel" alignment="CENTER" layoutX="94.0" layoutY="47.0" prefHeight="17.0" prefWidth="40.0" text="05:00" />
-   </children>
-</AnchorPane>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="720.0" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #000;" stylesheets="@style/bjjboard.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mg.bundinho.bjjboard.view.DisplayBoardController">
+   <center>
+      <AnchorPane maxHeight="720.0" maxWidth="1280.0" minHeight="720.0" minWidth="1280.0" prefHeight="720.0" prefWidth="1280.0" BorderPane.alignment="CENTER">
+         <children>
+            <Pane prefHeight="720.0" prefWidth="640.0" styleClass="left-panel" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Pane layoutX="276.0" layoutY="295.0" prefHeight="401.0" prefWidth="327.0" styleClass="point-panel">
+                     <children>
+                        <Label fx:id="whiteScoreLabel" alignment="CENTER" layoutX="2.0" layoutY="3.0" prefHeight="397.0" prefWidth="325.0" text="00" textFill="RED">
+                           <font>
+                              <Font size="200.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Pane layoutX="61.0" layoutY="502.0" prefHeight="194.0" prefWidth="160.0" styleClass="point-panel">
+                     <children>
+                        <Label fx:id="whiteAdvLabel" alignment="CENTER" layoutX="3.0" prefHeight="188.0" prefWidth="155.0" text="00" textFill="RED">
+                           <font>
+                              <Font size="96.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Pane layoutX="61.0" layoutY="198.0" prefHeight="194.0" prefWidth="160.0" styleClass="point-panel">
+                     <children>
+                        <Label fx:id="whitePenLabel" alignment="CENTER" layoutX="1.0" layoutY="3.0" prefHeight="188.0" prefWidth="155.0" text="00" textFill="RED">
+                           <font>
+                              <Font size="96.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Label alignment="CENTER" layoutX="83.0" layoutY="138.0" prefHeight="48.0" prefWidth="117.0" text="PEN">
+                     <font>
+                        <Font size="36.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="83.0" layoutY="443.0" prefHeight="48.0" prefWidth="117.0" text="ADV">
+                     <font>
+                        <Font size="36.0" />
+                     </font>
+                  </Label>
+               </children></Pane>
+            <Pane layoutX="407.0" prefHeight="720.0" prefWidth="640.0" styleClass="right-panel" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Pane layoutX="44.0" layoutY="298.0" prefHeight="401.0" prefWidth="326.0" styleClass="point-panel">
+                     <children>
+                        <Label fx:id="blueScoreLabel" alignment="CENTER" layoutX="1.0" layoutY="2.0" prefHeight="397.0" prefWidth="325.0" text="00" textFill="RED">
+                           <font>
+                              <Font size="200.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Pane layoutX="436.0" layoutY="201.0" prefHeight="194.0" prefWidth="160.0" styleClass="point-panel">
+                     <children>
+                        <Label fx:id="bluePenLabel" alignment="CENTER" layoutX="3.0" layoutY="3.0" prefHeight="188.0" prefWidth="155.0" text="00" textFill="RED">
+                           <font>
+                              <Font size="96.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Pane layoutX="442.0" layoutY="505.0" prefHeight="194.0" prefWidth="160.0" styleClass="point-panel">
+                     <children>
+                        <Label fx:id="blueAdvLabel" alignment="CENTER" layoutX="3.0" layoutY="3.0" prefHeight="188.0" prefWidth="155.0" text="00" textFill="RED">
+                           <font>
+                              <Font size="96.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Label alignment="CENTER" layoutX="458.0" layoutY="437.0" prefHeight="48.0" prefWidth="117.0" text="ADV">
+                     <font>
+                        <Font size="36.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="458.0" layoutY="132.0" prefHeight="48.0" prefWidth="117.0" text="PEN">
+                     <font>
+                        <Font size="36.0" />
+                     </font>
+                  </Label>
+               </children></Pane>
+            <StackPane layoutX="483.0" prefHeight="150.0" prefWidth="306.0" style="-fx-background-color: #000;" AnchorPane.leftAnchor="483.0" AnchorPane.topAnchor="120.0">
+               <children>
+                  <Label fx:id="timerLabel" alignment="CENTER" contentDisplay="TOP" prefHeight="150.0" prefWidth="317.0" text="05:00" textFill="WHITE">
+                     <font>
+                        <Font name="Agency FB Bold" size="96.0" />
+                     </font>
+                  </Label>
+               </children>
+            </StackPane>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>

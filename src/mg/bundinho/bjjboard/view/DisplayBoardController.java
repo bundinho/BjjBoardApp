@@ -20,13 +20,33 @@ import mg.bundinho.bjjboard.utils.DisplayBoardProperties;
 public class DisplayBoardController implements Initializable {
     @FXML
     private Label timerLabel;
+    @FXML
+    private Label whiteScoreLabel;
+    @FXML
+    private Label whiteAdvLabel;
+    @FXML
+    private Label whitePenLabel;
+    @FXML
+    private Label blueScoreLabel;
+    @FXML
+    private Label blueAdvLabel;
+    @FXML
+    private Label bluePenLabel;
 
     /**
      * Initializes the controller class.
+     * @param url
+     * @param rb 
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        DisplayBoardProperties.TIMER_LABEL.addListener((observable, oldValue, newValue) -> timerLabel.setText(DisplayBoardProperties.TIMER_LABEL.get()) );
+        DisplayBoardProperties.TIMER_LABEL.bindBidirectional(timerLabel.textProperty());
+        DisplayBoardProperties.WHITE_SCORE_LABEL.bindBidirectional(whiteScoreLabel.textProperty());
+        DisplayBoardProperties.WHITE_ADV_LABEL.bindBidirectional(whiteAdvLabel.textProperty());
+        DisplayBoardProperties.WHITE_PEN_LABEL.bindBidirectional(whitePenLabel.textProperty());
+        DisplayBoardProperties.BLUE_SCORE_LABEL.bindBidirectional(blueScoreLabel.textProperty());
+        DisplayBoardProperties.BLUE_ADV_LABEL.bindBidirectional(blueAdvLabel.textProperty());
+        DisplayBoardProperties.BLUE_PEN_LABEL.bindBidirectional(bluePenLabel.textProperty());
     }  
     
 }
