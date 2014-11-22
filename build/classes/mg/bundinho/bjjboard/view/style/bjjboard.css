@@ -22,7 +22,23 @@ and open the template in the editor.
 
 .point-panel{
     -fx-outer-border: black;
-    -fx-body-color: #7d9699;
+    -fx-body-color: #fff;
+    -fx-background-color: -fx-outer-border, -fx-body-color;
+    -fx-background-insets: 0, 3;
+    -fx-border-radius: 6px, 6px;
+}
+
+.advantage-panel {
+    -fx-outer-border: black;
+    -fx-body-color: #00f;
+    -fx-background-color: -fx-outer-border, -fx-body-color;
+    -fx-background-insets: 0, 3;
+    -fx-border-radius: 6px, 6px;
+}
+
+.penalty-panle {
+    -fx-outer-border: black;
+    -fx-body-color: #f00;
     -fx-background-color: -fx-outer-border, -fx-body-color;
     -fx-background-insets: 0, 3;
     -fx-border-radius: 6px, 6px;
